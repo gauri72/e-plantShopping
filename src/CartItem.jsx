@@ -1,10 +1,13 @@
 import React from 'react';
+// Redux integration: Import hooks and actions
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, updateQuantity } from './CartSlice';
 import './CartItem.css';
 
 const CartItem = ({ onContinueShopping }) => {
+  // Access the Redux store to retrieve cart items
   const cart = useSelector(state => state.cart.items);
+  // Initialize Redux: Get dispatch function to dispatch actions
   const dispatch = useDispatch();
 
   // Calculate total amount for all products in the cart
@@ -27,6 +30,7 @@ const CartItem = ({ onContinueShopping }) => {
     alert('Functionality to be added for future reference');
   };
 
+  // Use the updateQuantity action to change how many items are in the cart (increment)
   const handleIncrement = (item) => {
     // Dispatch updateQuantity with quantity increased by 1
     dispatch(updateQuantity({
@@ -35,6 +39,7 @@ const CartItem = ({ onContinueShopping }) => {
     }));
   };
 
+  // Use the updateQuantity action to change how many items are in the cart (decrement)
   const handleDecrement = (item) => {
     // If the item's quantity is greater than 1, decrease the quantity by 1
     if (item.quantity > 1) {
@@ -43,11 +48,12 @@ const CartItem = ({ onContinueShopping }) => {
         amount: item.quantity - 1
       }));
     } else {
-      // If quantity would drop to 0, remove the item from the cart
+      // If quantity would drop to 0, use removeItem action to delete the item completely from the cart
       dispatch(removeItem(item));
     }
   };
 
+  // Use the removeItem action to delete an item completely from the cart
   const handleRemove = (item) => {
     // Dispatch removeItem action to delete the item from the cart
     dispatch(removeItem(item));

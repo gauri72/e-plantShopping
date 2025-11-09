@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// Initialize the cart state within the Redux store to keep track of cart items
 export const CartSlice = createSlice({
   name: 'cart',
   initialState: {
-    items: [], // Initialize items as an empty array
+    items: [], // Initialize items as an empty array - cart state in Redux store
   },
   reducers: {
     addItem: (state, action) => {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
+// Redux integration: Import hooks and actions
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from './CartSlice';
 
@@ -8,10 +9,13 @@ function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
     const [addedToCart, setAddedToCart] = useState({}); // State to track which products are added to cart
+    
+    // Initialize Redux: Get dispatch function and access cart state from Redux store
     const dispatch = useDispatch();
+    // Access the Redux store to retrieve cart items
     const cart = useSelector(state => state.cart.items);
     
-    // Calculate total number of items in cart
+    // Calculate and display the total quantity of items currently in the cart
     const totalCartItems = cart.reduce((total, item) => total + item.quantity, 0);
 
     const plantsArray = [
@@ -271,8 +275,9 @@ function ProductList({ onHomeClick }) {
     );
 
     // Handle Add to Cart functionality
+    // Use the addItem action to add selected products to the cart
     const handleAddToCart = (plant) => {
-        // Dispatch the plant information to Redux store
+        // Dispatch the plant information to Redux store using addItem action
         dispatch(addItem(plant));
         
         // Update the addedToCart state to reflect the product has been added
