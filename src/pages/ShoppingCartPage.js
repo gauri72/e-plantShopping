@@ -97,7 +97,12 @@ const ShoppingCartPage = () => {
               <Link to="/products" className="continue-shopping-btn">
                 Continue Shopping
               </Link>
-              <button className="checkout-btn">Checkout</button>
+              <button 
+                className="checkout-btn"
+                onClick={() => alert('Functionality to be added for future reference')}
+              >
+                Checkout
+              </button>
             </div>
           </div>
         </div>
