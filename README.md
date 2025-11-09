@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Paradise Nursery - Houseplant Shopping Application
 
 A beautiful React-based e-commerce application for browsing and purchasing houseplants.
@@ -101,3 +102,6 @@ src/
 
 This project is created for educational purposes.
 
+=======
+# coding-project-template
+>>>>>>> origin/main
