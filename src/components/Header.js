@@ -11,13 +11,13 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-container">
-        <Link to="/products" className="logo">
+        <Link to="/" className="logo">
           <h1>🌿 Paradise Nursery</h1>
         </Link>
         <nav className="nav">
           {location.pathname !== '/products' && (
             <Link to="/products" className="nav-link">
-              Products
+              Plants
             </Link>
           )}
           {location.pathname !== '/cart' && (
@@ -38,7 +38,7 @@ const Header = () => {
           )}
           {location.pathname === '/cart' && (
             <Link to="/products" className="nav-link">
-              Products
+              Plants
             </Link>
           )}
         </nav>
